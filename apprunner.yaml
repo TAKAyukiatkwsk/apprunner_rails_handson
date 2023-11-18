@@ -5,7 +5,7 @@ build:
     build:
       - sudo yum install -y libyaml-devel postgresql-devel
       - bundle install 
-      - bundle exec rail db:migrate
+      - bundle exec rails db:migrate
       - bundle exec rails assets:precompile
   env:
     - name: RAILS_ENV
@@ -16,10 +16,11 @@ build:
       value: enabled
     - name: RAILS_SERVE_STATIC_FILES
       value: enabled
+  secrets:
     - name: RAILS_MASTER_KEY
-      value: f7b4489992e3ecc9f8f009a892942389
+      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:RAILS_MASTER_KEY::
     - name: SECRET_KEY_BASE
-      value: 310e97425d11656100d39c8dce1c04df
+      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:SECRET_KEY_BASE::
 run: 
   runtime-version: 3.1.4
   command: bundle exec rails server --binding=0.0.0.0
@@ -34,7 +35,8 @@ run:
       value: enabled
     - name: RAILS_SERVE_STATIC_FILES
       value: enabled
+  secrets:
     - name: RAILS_MASTER_KEY
-      value: f7b4489992e3ecc9f8f009a892942389
+      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:RAILS_MASTER_KEY::
     - name: SECRET_KEY_BASE
-      value: 310e97425d11656100d39c8dce1c04df
+      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:SECRET_KEY_BASE::
