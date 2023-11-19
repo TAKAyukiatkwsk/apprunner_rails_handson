@@ -5,7 +5,7 @@ build:
     build:
       - sudo yum install -y libyaml-devel postgresql-devel
       - bundle install 
-      # - bundle exec rails db:migrate
+      - bundle exec rails db:migrate
       - bundle exec rails assets:precompile
   env:
     - name: RAILS_ENV
@@ -16,11 +16,8 @@ build:
       value: enabled
     - name: RAILS_SERVE_STATIC_FILES
       value: enabled
-  # secrets:
-  #   - name: RAILS_MASTER_KEY
-  #     value-from: 'arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:RAILS_MASTER_KEY::'
-  #   - name: SECRET_KEY_BASE
-  #     value-from: 'arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:SECRET_KEY_BASE::'
+    - name: SECRET_KEY_BASE_DUMMY
+      value: 1
 run: 
   runtime-version: 3.1.4
   command: bundle exec rails server --binding=0.0.0.0
