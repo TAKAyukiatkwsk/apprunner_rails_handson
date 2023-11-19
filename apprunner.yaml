@@ -37,6 +37,6 @@ run:
       value: enabled
   secrets:
     - name: RAILS_MASTER_KEY
-      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:RAILS_MASTER_KEY::
+      value-from: 'arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:RAILS_MASTER_KEY::'
     - name: SECRET_KEY_BASE
-      value-from: arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:SECRET_KEY_BASE::
+      value-from: 'arn:aws:secretsmanager:ap-northeast-1:798131783038:secret:apprunner_rails_handson-4KRPE0:SECRET_KEY_BASE::'
